@@ -16,6 +16,26 @@ public class PlayerMove : MonoBehaviour
     // 초당 프레임 실행 횟수는: 별다른 설정이 없을 경우 가능한 많이
     private void Update()
     {
+        Move();
+        
+        SpeedChange();
+    }
+
+    private void SpeedChange()
+    {
+        // 7. Q/E 버튼 입력을 통한 스피드 업/다운
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Speed++;
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Speed--;
+        }
+    }
+
+    private void Move()
+    {
         // 1. 키보드 입력을 받는다.
         float h = Input.GetAxisRaw("Horizontal"); 
         float v = Input.GetAxisRaw("Vertical");
@@ -47,17 +67,6 @@ public class PlayerMove : MonoBehaviour
         }
         
         transform.position = newPosition;
-
-
-        // 7. Q/E 버튼 입력을 통한 스피드 업/다운
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Speed++;
-        }
-        else if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Speed--;
-        }
     }
     
 }

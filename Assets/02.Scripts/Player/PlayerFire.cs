@@ -7,7 +7,6 @@ public class PlayerFire : MonoBehaviour
     // - 총알 프리팹
     public GameObject BulletPrefab;
     
-    
     // - 생성 위치(총구)
     public Transform LeftFirePoint;
     public Transform RightFirePoint;
@@ -15,6 +14,10 @@ public class PlayerFire : MonoBehaviour
     // - 쿨타이머
     public float CoolTime = 0.5f;
     public float CoolTimer = 0;
+    
+    // - 오토 모드
+    public bool AutoFireMode = false;
+    
 
     private void Start()
     {
@@ -24,11 +27,17 @@ public class PlayerFire : MonoBehaviour
     
     private void Update()
     {
+        // 오토 공격 모드 토글
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            AutoFireMode = !AutoFireMode; 
+        }
+        
         // 0. 쿨타이머 감소
         CoolTimer -= Time.deltaTime;
         
-        // 1. 쿨타이머가 0초 이하이고 && 스페이스바를 누르면 
-        if (CoolTimer <= 0 && Input.GetKeyDown(KeyCode.Space))
+        // 1. 쿨타이머가 0초 이하이고 && (스페이스바를 누르거나 || 오토 모드라면)
+        if (CoolTimer <= 0 && (Input.GetKeyDown(KeyCode.Space) || AutoFireMode))
         {
             // 2. 발사
             Fire();

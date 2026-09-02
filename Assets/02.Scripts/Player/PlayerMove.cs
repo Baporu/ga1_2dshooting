@@ -13,8 +13,8 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         // 1. 키보드 입력을 받는다.
-        float h = Input.GetAxis("Horizontal"); // 키보드 왼/오른쪽 입력 상태에 따라 -1f ~ 0 ~ 1f
-        float v = Input.GetAxis("Vertical");   // 키보드 위/아래 입력 상태에 따라 -1f ~ 0 ~ 1f
+        float h = Input.GetAxisRaw("Horizontal"); // 키보드 왼/오른쪽 입력 상태에 따라 -1f ~ 0 ~ 1f
+        float v = Input.GetAxisRaw("Vertical");   // 키보드 위/아래 입력 상태에 따라 -1f ~ 0 ~ 1f
         
         Debug.Log($"h:{h}, v:{v}");
         
@@ -27,7 +27,8 @@ public class PlayerMove : MonoBehaviour
         // 속도 = 방향 * 속력                        // 매직 넘버란: 보는 사람에 따라 의미가 달라질 수 있는
         // 헷갈리는 숫자
         // 0.06
-        transform.Translate(direction * Speed * Time.deltaTime);
+        Vector2 normalizedSpeed = (direction * Speed).normalized; // 벡터의 길이를 1로 만들어주는것 (즉, 방향만 유지한다.)
+        transform.Translate(direction * normalizedSpeed * Time.deltaTime);
         // deltaTime: 이전 프레임으로부터 지금 프레임까지 시간이 얼마나 지났는지 MS로 반환
         
         // 새로운 위치 = 현재 위치 + (방향 * 속력 * 시간)

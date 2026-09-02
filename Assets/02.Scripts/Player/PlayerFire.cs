@@ -12,6 +12,11 @@ public class PlayerFire : MonoBehaviour
     
     private void Update()
     {
+        Fire();
+    }
+
+    private void Fire()
+    {
         // 1. 스페이스바를 누르면 
         if (Input.GetKeyDown(KeyCode.Space))
         {

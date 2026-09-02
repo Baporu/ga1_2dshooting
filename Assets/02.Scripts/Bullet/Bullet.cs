@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     
     private void Update()
     {
-        Vector2 direction = Vector2.up;//  new Vector2(1, 0);
+        Vector2 direction = Vector2.up;//  new Vector2(0, 1);
         transform.Translate(direction * Speed * Time.deltaTime);
     }
 }

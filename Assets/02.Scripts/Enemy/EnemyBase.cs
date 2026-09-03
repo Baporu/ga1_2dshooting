@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour
@@ -16,4 +17,14 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
     protected abstract void Move();
+
+    public void TakeDamage(float damage)
+    {
+        Health -= damage;
+
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public float Health = 100;
+
     public float MoveSpeed;
     public float MinPositionY;
 

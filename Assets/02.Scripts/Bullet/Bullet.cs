@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
     // 목적: 총알을 위로 움직이고 싶다.
     public float MoveSpeed;
 
+    public float Damage;
+
     private void Update()
     {
         Vector2 direction = Vector2.up; //  new Vector2(0, 1);
@@ -18,8 +20,21 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log("충돌했다!");
 
-        Destroy(this.gameObject);
-        Destroy(collision.gameObject);
+        // 충돌한 친구가 Enemy일 때만 죽여보자!
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            // GetComponent<타입>() -> 게임 오브젝트가 가지고 있는 컴포넌트를 참조
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+
+            enemy.Health -= Damage;
+
+            if (enemy.Health <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
+
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)

@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             // GetComponent<타입>() -> 게임 오브젝트가 가지고 있는 컴포넌트를 참조
-            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            EnemyBase enemy = collision.gameObject.GetComponent<EnemyBase>();
 
             enemy.Health -= Damage;
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2639443288067745862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftSubFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -46,9 +46,9 @@ GameObject:
   - component: {fileID: 6894589007029292385}
   - component: {fileID: 3430322619549153678}
   - component: {fileID: 8947019050656279271}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3319973134752039388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -301,7 +301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5095795471294242090}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -332,7 +332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4662091161636126845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightSubFirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

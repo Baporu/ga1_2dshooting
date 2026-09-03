@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d429947a7110a94a95f5704c6a41be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  EnemyPrefab: {fileID: 2623633139348146825, guid: 55b3ae59b2f61084c96471ec4dd44f98, type: 3}
+  EnemyPrefab: {fileID: 2623633139348146825, guid: c922075aea9259e4881e42cb42007e27, type: 3}
   MaxSpawnCount: 1
   SpawnCoolTime: 1
 --- !u!1 &519420028
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d429947a7110a94a95f5704c6a41be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  EnemyPrefab: {fileID: 2623633139348146825, guid: 55b3ae59b2f61084c96471ec4dd44f98, type: 3}
+  EnemyPrefab: {fileID: 2623633139348146825, guid: 44ef4d537471f2245a538e682737567b, type: 3}
   MaxSpawnCount: 1
   SpawnCoolTime: 1
 --- !u!1 &1975583953

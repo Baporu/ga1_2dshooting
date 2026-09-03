@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyChasingPlayer : EnemyBase
+public class HomingEnemy : EnemyBase
 {
     private GameObject _targetPlayer;
 
@@ -13,6 +13,6 @@ public class EnemyChasingPlayer : EnemyBase
     {
         Vector2 direction = _targetPlayer.transform.position - this.transform.position;
         direction.Normalize();
-        transform.Translate(direction * MoveSpeed * Time.deltaTime);
+        transform.Translate(direction * _moveSpeed * Time.deltaTime);
     }
 }

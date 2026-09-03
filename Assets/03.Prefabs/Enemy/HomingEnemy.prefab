@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 26004928358261967}
   - component: {fileID: 610328326958631436}
   m_Layer: 8
-  m_Name: EnemyChasingPlayer
+  m_Name: HomingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a76ca8973f536143a4e83e1e4dd3029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChasingPlayer
-  Health: 100
-  MoveSpeed: 2
-  MinPositionY: -6
+  _health: 100
+  _moveSpeed: 2
+  _minPositionY: -6
 --- !u!61 &26004928358261967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

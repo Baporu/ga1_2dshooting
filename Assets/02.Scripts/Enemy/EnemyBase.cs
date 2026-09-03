@@ -3,16 +3,15 @@ using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour
 {
-    public float Health = 100;
-
-    public float MoveSpeed;
-    public float MinPositionY;
+    [SerializeField] private float _health = 100;
+    [SerializeField] protected float _moveSpeed = 2;
+    [SerializeField] private float _minPositionY = -6;
 
     private void Update()
     {
         Move();
 
-        if (transform.position.y < MinPositionY)
+        if (transform.position.y < _minPositionY)
             Destroy(gameObject);
     }
 
@@ -20,9 +19,9 @@ public abstract class EnemyBase : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        Health -= damage;
+        _health -= damage;
 
-        if (Health <= 0)
+        if (_health <= 0)
         {
             Destroy(gameObject);
         }

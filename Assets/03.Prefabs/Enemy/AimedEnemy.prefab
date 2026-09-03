@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5069637200825122132}
   - component: {fileID: 7201152766703203071}
-  - component: {fileID: 2963481110556118515}
+  - component: {fileID: -5766807864773049106}
   - component: {fileID: 26004928358261967}
   - component: {fileID: 610328326958631436}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: AimedEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.4666667, b: 0.7062416, a: 1}
+  m_Color: {r: 0.990566, g: 0.36912602, b: 0.36912602, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2963481110556118515
+--- !u!114 &-5766807864773049106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,12 +103,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2623633139348146825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d48aef6fd045f7c4abaaee0982b3366b, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f1d400a621b846489ae4c3e11be04b5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  Health: 100
-  MoveSpeed: 2
-  MinPositionY: -6
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyToPlayer
+  _health: 100
+  _moveSpeed: 2
+  _minPositionY: -6
 --- !u!61 &26004928358261967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

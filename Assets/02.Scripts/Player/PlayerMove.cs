@@ -11,14 +11,38 @@ public class PlayerMove : MonoBehaviour
     public float MaxPositionX;
     public float MinPositionX;
 
+    private bool _isBuffed = false;
+    private float _buffTimer;
+
 
     // 매 프레임마다 실행된다.
     // 초당 프레임 실행 횟수는: 별다른 설정이 없을 경우 가능한 많이
     private void Update()
     {
+        if (_isBuffed)
+        {
+            _buffTimer -= Time.deltaTime;
+
+            if (_buffTimer <= 0)
+            {
+                _isBuffed = false;
+                Speed--;
+            }
+        }
+
         Move();
 
         SpeedChange();
+    }
+
+    public void BuffMove(float duration)
+    {
+        if (_isBuffed)
+            return;
+
+        _isBuffed = true;
+        _buffTimer = duration;
+        Speed++;
     }
 
     private void SpeedChange()

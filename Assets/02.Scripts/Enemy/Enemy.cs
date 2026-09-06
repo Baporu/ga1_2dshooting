@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -6,6 +7,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private int _health = 100;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected int _damage;
+
+    [SerializeField] private Item[] _itemPrefabs;
 
     private void Update()
     {
@@ -20,7 +23,18 @@ public abstract class Enemy : MonoBehaviour
         _health -= damage;
         if (_health <= 0)
         {
+            DropItem();
             Destroy(gameObject);
+        }
+    }
+
+    private void DropItem()
+    {
+        int randomValue = UnityEngine.Random.Range(0, 100);
+
+        if (randomValue < 30)
+        {
+            Instantiate(_itemPrefabs[randomValue / 10], transform.position, quaternion.identity);
         }
     }
 

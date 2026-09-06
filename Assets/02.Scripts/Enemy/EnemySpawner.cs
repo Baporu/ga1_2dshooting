@@ -34,16 +34,16 @@ public class EnemySpawner : MonoBehaviour
         // 20%: [2] Homing
 
         int enemyPrefabIndex = 0;
-        int radomPercent = UnityEngine.Random.Range(0, 100);
+        int randomPercent = UnityEngine.Random.Range(0, 100);
 
         // Todo: Scriptable Object를 사용해서 리팩토링
         // 이유 1: 배열을 사용했지만 각 아이템이 어떤 프리팹인지 알수가 없음
         // 이유 2: 각 에너미 스폰 확률을 매직 넘버로 하드코딩해서 유지보수가 어렵
-        if (radomPercent < 50)
+        if (randomPercent < 50)
         {
             enemyPrefabIndex = 0;
         }
-        else if (radomPercent < 80)
+        else if (randomPercent < 80)
         {
             enemyPrefabIndex = 1;
         }

@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _health = 100;
+    [SerializeField] private int _maxHealth = 100;
+    private int _health;
+
+    private void Start()
+    {
+        _health = _maxHealth;
+    }
 
     public void TakeDamage(int damage)
     {
@@ -10,6 +16,15 @@ public class Player : MonoBehaviour
         if (_health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void HealWound(int healAmount)
+    {
+        _health += healAmount;
+        if (_health > _maxHealth)
+        {
+            _health = _maxHealth;
         }
     }
 }

@@ -1406,7 +1406,6 @@ MonoBehaviour:
   LeftFirePoint: {fileID: 132933321}
   RightFirePoint: {fileID: 288131497}
   CoolTime: 0.5
-  CoolTimer: 0
   AutoFireMode: 0
 --- !u!50 &1902603604
 Rigidbody2D:
@@ -1497,7 +1496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4098bfbbbfc3f6b448a88dc309e4cca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  _health: 100
+  _maxHealth: 100
 --- !u!1001 &1472327012397102133
 PrefabInstance:
   m_ObjectHideFlags: 0

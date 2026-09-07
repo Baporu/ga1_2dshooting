@@ -9,6 +9,20 @@ public class Item : MonoBehaviour
     private float _waitTimer = 0f;
     private const float MoveSpeed = 5f;
 
+    private Player _player = null;
+
+    private void Start()
+    {
+        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
+        if (_player == null)
+        {
+            Debug.LogWarning("플레이어를 찾을 수 없습니다.");
+            return;
+        }
+    }
+
+
     private void Update()
     {
         _waitTimer += Time.deltaTime;
@@ -20,15 +34,9 @@ public class Item : MonoBehaviour
 
     private void FollowPlayer()
     {
-        Player player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        if (_player == null) return;
 
-        if (player == null)
-        {
-            Debug.LogWarning("플레이어를 찾을 수 없습니다.");
-            return;
-        }
-
-        Vector2 direction = player.transform.position - transform.position;
+        Vector2 direction = _player.transform.position - transform.position;
         direction.Normalize();
         transform.Translate(direction * MoveSpeed * Time.deltaTime);
     }

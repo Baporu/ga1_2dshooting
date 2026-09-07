@@ -9,6 +9,9 @@ indent_style = space
 indent_size = 4
 csharp_new_line_before_open_brace = all
 
+# case 블록 중괄호 안 내용은 한 단계 더 들여쓴다 (중괄호는 case 레이블과 같은 열).
+csharp_indent_case_contents_when_block = true
+
 # 조기 리턴(단일 행)은 중괄호 없이 허용, 여러 줄일 때만 중괄호 강제
 csharp_prefer_braces = when_multiline:warning
 

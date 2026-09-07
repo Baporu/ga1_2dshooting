@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732d8ead1e1b87144acb4d1384352bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  Type: FireRAteUp
+  Type: 2
   Value: 0.1

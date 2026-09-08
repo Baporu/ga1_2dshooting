@@ -11,8 +11,14 @@ public class Item : MonoBehaviour
 
     private Player _player = null;
 
+    private Animator _animator;
+
+
     private void Start()
     {
+        _animator = GetComponent<Animator>();
+        _animator.Play(_type.ToString());
+
         _player = GameObject.FindWithTag("Player").GetComponent<Player>();
 
         if (_player == null)

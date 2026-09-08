@@ -79,7 +79,6 @@ public class Item : MonoBehaviour
                     PlayerMove playerMove = player.GetComponent<PlayerMove>();
                     playerMove.SpeedUp(_value);
                     Debug.Log($"플레이어 이동속도: {playerMove.Speed}");
-
                     break;
                 }
 

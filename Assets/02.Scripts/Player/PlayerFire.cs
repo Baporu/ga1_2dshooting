@@ -14,7 +14,9 @@ public class PlayerFire : MonoBehaviour
 
     // - 쿨타이머
     private const float MinCoolTime = 0.06f;
-    public float CoolTime = 0.5f;
+    [SerializeField] private float _fireRate = 0.5f;
+    public float FireRate => _fireRate;
+
     public float CoolTimer = 0;
 
     // - 오토 모드
@@ -22,7 +24,7 @@ public class PlayerFire : MonoBehaviour
 
     private void Start()
     {
-        CoolTimer = CoolTime;
+        CoolTimer = _fireRate;
     }
 
 
@@ -44,7 +46,7 @@ public class PlayerFire : MonoBehaviour
             Fire();
 
             // 3. 쿨타이머 초기화
-            CoolTimer = CoolTime;
+            CoolTimer = _fireRate;
         }
     }
 
@@ -68,6 +70,6 @@ public class PlayerFire : MonoBehaviour
         }
 
         // 최고 속도 제한
-        CoolTime = Math.Max(CoolTime - upValue, MinCoolTime);
+        _fireRate = Math.Max(_fireRate - upValue, MinCoolTime);
     }
 }

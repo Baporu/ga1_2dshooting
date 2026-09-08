@@ -66,6 +66,8 @@ public class Item : MonoBehaviour
             case ItemType.Heal:
                 {
                     player.Heal((int)(_value));
+                    Debug.Log($"플레이어 체력: {player.Health}");
+                    //player._health = 34;
                     break;
                 }
 
@@ -74,13 +76,18 @@ public class Item : MonoBehaviour
                     // 캡슐화 : 
                     // + 데이터 은닉(Speed 속성 private 처리) 
                     // + 행위를 통한 상태 변경 (SpeedUp 호출)
-                    player.GetComponent<PlayerMove>().SpeedUp(_value);
+                    PlayerMove playerMove = player.GetComponent<PlayerMove>();
+                    playerMove.SpeedUp(_value);
+                    Debug.Log($"플레이어 이동속도: {playerMove.Speed}");
+
                     break;
                 }
 
             case ItemType.FireRateUp:
                 {
-                    player.GetComponent<PlayerFire>().FireRateUp(_value);
+                    PlayerFire playerFire = player.GetComponent<PlayerFire>();
+                    playerFire.FireRateUp(_value);
+                    Debug.Log($"플레이어 공격속도: {playerFire.FireRate}");
                     break;
                 }
         }

@@ -107,7 +107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
   _type: 0
-  _value: 0
+  _value: 20
+  _itemEffectPrefab: {fileID: 1701127128552901636, guid: f8152934fad9ea44bbc094c96e77d0e0, type: 3}
 --- !u!70 &2387694839598222983
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

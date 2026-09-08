@@ -4,6 +4,7 @@ public class Item : MonoBehaviour
 {
     [SerializeField] private ItemType _type;
     [SerializeField] private float _value;
+    [SerializeField] private GameObject _itemEffectPrefab;
 
     private const float WaitTime = 2f;
     private float _waitTimer = 0f;
@@ -51,6 +52,8 @@ public class Item : MonoBehaviour
             Debug.LogWarning("플레이어 태그 오브젝트에 플레이어 컴포넌트가 없습니다.");
             return;
         }
+
+        Instantiate(_itemEffectPrefab, player.transform.position, Quaternion.identity);
 
         switch (_type)
         {

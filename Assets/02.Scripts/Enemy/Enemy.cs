@@ -20,7 +20,7 @@ public abstract class Enemy : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         Move();
     }

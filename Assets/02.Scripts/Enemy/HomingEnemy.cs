@@ -10,15 +10,26 @@ public class HomingEnemy : Enemy
         _player = GameObject.FindWithTag("Player");
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        Rotate();
+    }
+
     protected override void Move()
     {
         if (_player == null) return;
 
-        // 1. 방향을 구한다.
-        Vector2 direction = _player.transform.position - transform.position;
-        direction.Normalize();
+        transform.Translate(Vector2.down * _moveSpeed * Time.deltaTime);
+    }
 
-        // 2. 방향과 속도에 맞게 이동한다.
-        transform.Translate(direction * _moveSpeed * Time.deltaTime);
+    private void Rotate()
+    {
+        if (_player == null) return;
+
+        Vector2 direction = _player.transform.position - transform.position;
+
+        float degree = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, degree + 90.0f);
     }
 }

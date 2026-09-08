@@ -1,4 +1,9 @@
+using System.Numerics;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class AimedEnemy : Enemy
 {
@@ -16,6 +21,8 @@ public class AimedEnemy : Enemy
 
         _direction = _player.transform.position - transform.position;
         _direction.Normalize();
+
+        Rotate();
     }
 
     protected override void Move()
@@ -23,6 +30,16 @@ public class AimedEnemy : Enemy
         if (_player == null) return;
 
         //  방향과 속도에 맞게 이동한다.
-        transform.Translate(_direction * _moveSpeed * Time.deltaTime);
+        transform.Translate(Vector2.down * _moveSpeed * Time.deltaTime);
+    }
+
+    private void Rotate()
+    {
+        if (_player == null) return;
+
+        Vector2 direction = _player.transform.position - transform.position;
+
+        float degree = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, degree + 90.0f);
     }
 }

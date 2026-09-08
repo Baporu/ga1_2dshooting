@@ -1291,6 +1291,7 @@ GameObject:
   - component: {fileID: 1902603604}
   - component: {fileID: 1902603606}
   - component: {fileID: 1902603607}
+  - component: {fileID: 1902603608}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1522,6 +1523,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1902603608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902603599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df63d44ede0746d46b58b4a99b5220d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBomb
+  _bombPrefab: {fileID: 7678025348423356394, guid: f0adfd823caeae84bba06c3877a4f81b, type: 3}
+  _coolTime: 10
 --- !u!1 &2127350323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1628,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.1499974
+        value: 0.20000045
         inSlope: 0
         outSlope: 0
         tangentMode: 0

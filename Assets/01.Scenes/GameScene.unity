@@ -1406,7 +1406,7 @@ MonoBehaviour:
   BulletPrefab: {fileID: 4418343509438949766, guid: 4bd05b3549a57f34b9fa2687d3add50e, type: 3}
   LeftFirePoint: {fileID: 132933321}
   RightFirePoint: {fileID: 288131497}
-  CoolTime: 0.5
+  _fireRate: 0.5
   CoolTimer: 0
   AutoFireMode: 0
 --- !u!50 &1902603604

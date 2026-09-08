@@ -15,7 +15,8 @@ public class PlayerFire : MonoBehaviour
     // - 쿨타이머
     private const float MinCoolTime = 0.06f;
     public float CoolTime = 0.5f;
-    private float _coolTime = 0.5f;
+    private float _fireRate = 0.5f;
+    public float FireRate => _fireRate;
     private float _coolTimer = 0;
 
     private bool _isBuffed = false;
@@ -26,8 +27,8 @@ public class PlayerFire : MonoBehaviour
 
     private void Start()
     {
-        _coolTime = CoolTime;
-        _coolTimer = _coolTime;
+        _fireRate = CoolTime;
+        _coolTimer = _fireRate;
     }
 
 
@@ -45,7 +46,7 @@ public class PlayerFire : MonoBehaviour
             if (_buffTimer <= 0)
             {
                 _isBuffed = false;
-                _coolTime = CoolTime;
+                _fireRate = CoolTime;
             }
         }
 
@@ -59,7 +60,7 @@ public class PlayerFire : MonoBehaviour
             Fire();
 
             // 3. 쿨타이머 초기화
-            _coolTimer = _coolTime;
+            _coolTimer = _fireRate;
         }
     }
 
@@ -70,7 +71,7 @@ public class PlayerFire : MonoBehaviour
 
         _isBuffed = true;
         _buffTimer = duration;
-        _coolTime /= 1 + amount;
+        _fireRate /= 1 + amount;
     }
 
     private void Fire()

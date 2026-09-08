@@ -80,6 +80,7 @@ public class Item : MonoBehaviour
             case ItemType.FireRateUp:
                 {
                     player.GetComponent<PlayerFire>().FireRateUp(_value);
+                    Debug.Log($"플레이어 공격속도: {player.GetComponent<PlayerFire>().FireRate}");
                     break;
                 }
         }

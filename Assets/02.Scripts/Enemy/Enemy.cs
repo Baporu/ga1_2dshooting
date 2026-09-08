@@ -12,6 +12,7 @@ public abstract class Enemy : MonoBehaviour
 
     // - 생성할 아이템 프리팹들
     [SerializeField] private Item[] _itemPrefabs;
+    [SerializeField] private GameObject _deathEffectPrefab;
 
     // 객체가 생성될 때 한 번 실행된다.
     private void Awake()
@@ -40,8 +41,10 @@ public abstract class Enemy : MonoBehaviour
 
         if (_health <= 0)
         {
-            Destroy(gameObject);
             SpawnItem();
+            SpawnDeathEffect();
+
+            Destroy(gameObject);
         }
     }
 
@@ -53,6 +56,11 @@ public abstract class Enemy : MonoBehaviour
         // 이유 1: 배열을 사용했지만 각 아이템이 어떤 프리팹인지 알수가 없음
         // 이유 2: 각 아이템 스폰 확률을 매직 넘버로 하드코딩해서 유지보수가 어렵
         Instantiate(_itemPrefabs[Random.Range(0, _itemPrefabs.Length)], transform.position, transform.rotation);
+    }
+
+    private void SpawnDeathEffect()
+    {
+        Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
     }
 
 

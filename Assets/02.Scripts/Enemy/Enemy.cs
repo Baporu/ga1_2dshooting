@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -8,7 +7,18 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected int _damage;
 
+    private Animator _animator;
+
+
+    // - 생성할 아이템 프리팹들
     [SerializeField] private Item[] _itemPrefabs;
+
+    // 객체가 생성될 때 한 번 실행된다.
+    private void Awake()
+    {
+        // 애니메이터 컴포넌트에 대한 참조를 가져와서 할당한다.
+        _animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -21,22 +31,30 @@ public abstract class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
+
+
+        if (_animator != null)
+        {
+            _animator.SetTrigger("hit");
+        }
+
         if (_health <= 0)
         {
-            DropItem();
             Destroy(gameObject);
+            SpawnItem();
         }
     }
 
-    private void DropItem()
+    private void SpawnItem()
     {
-        int randomValue = UnityEngine.Random.Range(0, 100);
+        if (Random.Range(0, 100) > 30) return;
 
-        if (randomValue < 30)
-        {
-            Instantiate(_itemPrefabs[randomValue / 10], transform.position, quaternion.identity);
-        }
+        // Todo: Scriptable Object를 사용해서 리팩토링
+        // 이유 1: 배열을 사용했지만 각 아이템이 어떤 프리팹인지 알수가 없음
+        // 이유 2: 각 아이템 스폰 확률을 매직 넘버로 하드코딩해서 유지보수가 어렵
+        Instantiate(_itemPrefabs[Random.Range(0, _itemPrefabs.Length)], transform.position, transform.rotation);
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth = 100;
-    private int _health;
-
-    private void Start()
-    {
-        _health = _maxHealth;
-    }
+    [SerializeField] private int _health = 100;
 
     public void TakeDamage(int damage)
     {
+        if (damage < 0)
+        {
+            Debug.LogWarning("대미지는 음수일 수 없습니다.");
+            return;
+        }
+
         _health -= damage;
         if (_health <= 0)
         {
@@ -19,12 +19,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void HealWound(int healAmount)
+    public void Heal(int healAmount)
     {
-        _health += healAmount;
-        if (_health > _maxHealth)
+        if (healAmount < 0)
         {
-            _health = _maxHealth;
+            Debug.LogWarning("힐량은 음수일 수 없습니다.");
+            return;
         }
+
+        _health += healAmount;
     }
 }

@@ -183,6 +183,6 @@ MonoBehaviour:
   _moveSpeed: 2
   _damage: 5
   _itemPrefabs:
-  - {fileID: 678124590356675562, guid: c17fb14c4f204954ab779b0c7c527e51, type: 3}
-  - {fileID: 838778243507341935, guid: 009001153ed5ba44dbcac5052c77ca3b, type: 3}
-  - {fileID: 7384223474262285079, guid: 9fb50bfe75d9d0246bba87cfc4df03e0, type: 3}
+  - {fileID: 733914353191053357, guid: ad0298e3d1ecf4a4da7ac1e000ec664c, type: 3}
+  - {fileID: 4034018496090534397, guid: f2734fb76f763d24db6b689f8e94036a, type: 3}
+  - {fileID: 5502437611013818598, guid: 5a2e057023b396b4fb35471e94bf8ed7, type: 3}

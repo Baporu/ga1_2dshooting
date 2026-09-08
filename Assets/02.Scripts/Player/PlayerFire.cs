@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerFire : MonoBehaviour
@@ -12,6 +13,7 @@ public class PlayerFire : MonoBehaviour
     public Transform RightFirePoint;
 
     // - 쿨타이머
+    private const float MinCoolTime = 0.06f;
     public float CoolTime = 0.5f;
     private float _coolTime = 0.5f;
     private float _coolTimer = 0;
@@ -40,7 +42,6 @@ public class PlayerFire : MonoBehaviour
         if (_isBuffed)
         {
             _buffTimer -= Time.deltaTime;
-            
             if (_buffTimer <= 0)
             {
                 _isBuffed = false;
@@ -81,5 +82,17 @@ public class PlayerFire : MonoBehaviour
 
         GameObject rightBullet = Instantiate(BulletPrefab);
         rightBullet.transform.position = RightFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
+    }
+
+    public void FireRateUp(float upValue)
+    {
+        if (upValue < 0)
+        {
+            Debug.LogWarning("공격 속도 증가량은 0보다 작을 수 없습니다.");
+            return;
+        }
+
+        // 최고 속도 제한
+        CoolTime = Math.Max(CoolTime - upValue, MinCoolTime);
     }
 }

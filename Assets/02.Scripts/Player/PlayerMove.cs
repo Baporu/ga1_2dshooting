@@ -5,44 +5,46 @@ public class PlayerMove : MonoBehaviour
     // 목적: 키보드 입력에 따라서 플레이어 이동 처리를 하고 싶다.
 
     // 필요 필드:
-    public float Speed;
+    private Animator _animator;
+
+    [SerializeField] private float _speed;
     public float MaxPositionY;
     public float MinPositionY;
     public float MaxPositionX;
     public float MinPositionX;
 
-    private bool _isBuffed = false;
-    private float _buffTimer;
 
+    // 객체가 생성될 때 한 번 실행된다.
+    private void Awake()
+    {
+        // 애니메이터 컴포넌트에 대한 참조를 가져와서 할당한다.
+        _animator = GetComponent<Animator>();
+    }
 
     // 매 프레임마다 실행된다.
     // 초당 프레임 실행 횟수는: 별다른 설정이 없을 경우 가능한 많이
     private void Update()
     {
-        if (_isBuffed)
-        {
-            _buffTimer -= Time.deltaTime;
-
-            if (_buffTimer <= 0)
-            {
-                _isBuffed = false;
-                Speed--;
-            }
-        }
-
         Move();
 
         SpeedChange();
     }
 
-    public void BuffMove(float duration)
+    public void SpeedUp(float upValue)
     {
-        if (_isBuffed)
+        if (upValue < 0)
+        {
+            Debug.LogWarning("속도 증가량은 0보다 작을 수 없습니다.");
             return;
+        }
 
-        _isBuffed = true;
-        _buffTimer = duration;
-        Speed++;
+        _speed += upValue;
+
+        // 최대 속도를 제한하는 등의 메서드를 추가할수도 있다.
+        /*if (_speed > MaxSpeed)
+        {
+            _speed = MaxSpeed;
+        }*/
     }
 
     private void SpeedChange()
@@ -50,11 +52,11 @@ public class PlayerMove : MonoBehaviour
         // 7. Q/E 버튼 입력을 통한 스피드 업/다운
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Speed++;
+            _speed++;
         }
         else if (Input.GetKeyDown(KeyCode.Q))
         {
-            Speed--;
+            _speed--;
         }
     }
 
@@ -67,8 +69,11 @@ public class PlayerMove : MonoBehaviour
         // 2. 키보드 입력에 따라 방향을 구한다.
         Vector2 normalizedDirection = new Vector2(h, v).normalized;
 
+        _animator.SetInteger("x", (int)normalizedDirection.x);
+
+
         // 3. 방향과 속력에 따라 이동한다.
-        Vector2 newPosition = transform.position + (Vector3)normalizedDirection * Speed * Time.deltaTime;
+        Vector2 newPosition = transform.position + (Vector3)normalizedDirection * _speed * Time.deltaTime;
 
         // 4. 위치 y에 제한이 있다.
         if (newPosition.y > MaxPositionY)

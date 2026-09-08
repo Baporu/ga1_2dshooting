@@ -9,9 +9,11 @@ public abstract class Enemy : MonoBehaviour
 
     private Animator _animator;
 
-
     // - 생성할 아이템 프리팹들
     [SerializeField] private Item[] _itemPrefabs;
+
+    // - 죽을때 생성할 이펙트 프리팹
+    [SerializeField] private GameObject _deathEffectPrefab;
 
     // 객체가 생성될 때 한 번 실행된다.
     private void Awake()
@@ -40,10 +42,18 @@ public abstract class Enemy : MonoBehaviour
 
         if (_health <= 0)
         {
-            Destroy(gameObject);
+            SpawnDeathEffect();
             SpawnItem();
+
+            Destroy(gameObject);
         }
     }
+
+    private void SpawnDeathEffect()
+    {
+        Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
+    }
+
 
     private void SpawnItem()
     {

@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -8,6 +6,15 @@ public class Bullet : MonoBehaviour
     public float MoveSpeed;
     public int Damage;
 
+    private AudioSource _audioSource;
+
+
+    private void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+
+        _audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+    }
 
     private void Update()
     {
@@ -21,9 +28,6 @@ public class Bullet : MonoBehaviour
         // 충돌한 친구가 Enemy일때만 죽여쁠자!
         if (other.gameObject.CompareTag("Enemy"))
         {
-            // 나죽고!
-            Destroy(this.gameObject);
-
             // GetComponent<타입>() -> 게임 오브젝트가 가지고 있는 컴포넌트를 참조
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
 
@@ -32,6 +36,8 @@ public class Bullet : MonoBehaviour
             // 무적모드 검사하고
             // 방어력 검사.. 
             enemy.TakeDamage(Damage);
+
+            Destroy(this.gameObject);
         }
     }
 

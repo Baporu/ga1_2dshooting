@@ -1066,8 +1066,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1095450199}
   - component: {fileID: 1095450198}
+  - component: {fileID: 1095450200}
   m_Layer: 0
-  m_Name: BackgroundAudio
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,7 +1085,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 21df7541655a61648a6874738d682fb0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 4a9b580a753b8d34a9ff3945239f5aad, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1185,6 +1186,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1095450200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095450197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41c1e4ec4f85fd545b2eb2a8337b5ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  _audioClips:
+  - {fileID: 8300000, guid: b172cfb74b7252c4199790a92822fe2e, type: 3}
+  - {fileID: 8300000, guid: bf380c77b94938a45ac4e3018f854b3a, type: 3}
+  - {fileID: 8300000, guid: 0602f8abb1eb7e248b31ca8c2dd68d0d, type: 3}
+  - {fileID: 8300000, guid: 35152ae19e38f53499f2ae76e9447680, type: 3}
+  - {fileID: 8300000, guid: 3bd0d5937950d4c4b88d8f9bf8ca2284, type: 3}
+  - {fileID: 8300000, guid: 9e39119b50df9184c9c70742b468bb76, type: 3}
+  _initPoolSize: 10
 --- !u!1 &1359945836
 GameObject:
   m_ObjectHideFlags: 0

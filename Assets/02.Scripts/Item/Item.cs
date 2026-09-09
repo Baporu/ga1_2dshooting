@@ -56,6 +56,8 @@ public class Item : MonoBehaviour
         GameObject vfx = Instantiate(_itemEffectPrefab, player.transform.position, Quaternion.identity);
         vfx.transform.SetParent(player.transform);
 
+        AudioManager.Instance.PlaySFX(AudioType.ITEM);
+
         switch (_type)
         {
             // 심화 과제 1. 퍼사드 패턴 (패턴: 객체지향에서 자주 일어나는 설계 문제를 잘 풀어내도록 경험에의해 정리해논 공식같은거...)

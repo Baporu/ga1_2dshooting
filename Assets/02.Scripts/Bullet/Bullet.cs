@@ -6,15 +6,6 @@ public class Bullet : MonoBehaviour
     public float MoveSpeed;
     public int Damage;
 
-    private AudioSource _audioSource;
-
-
-    private void Awake()
-    {
-        _audioSource = GetComponent<AudioSource>();
-
-        _audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-    }
 
     private void Update()
     {

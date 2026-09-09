@@ -33,10 +33,18 @@ public class Player : MonoBehaviour
         }
 
         _health -= damage;
+        
         if (_health <= 0)
         {
             Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);
+            AudioManager.Instance.PlaySFX(AudioType.PLAYER_DEATH);
+
             Destroy(gameObject);
+        }
+
+        else
+        {
+            AudioManager.Instance.PlaySFX(AudioType.PLAYER_HIT);
         }
     }
 

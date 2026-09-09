@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 // 역할: 일정 시간마다 적을 생성해주고 싶다.
 public class EnemySpawner : MonoBehaviour
@@ -6,14 +8,24 @@ public class EnemySpawner : MonoBehaviour
     // 필요 속성
     // - 타이머
     [SerializeField] private float _spawnInterval = 3f;
-
     private float _timer;
 
     // - 생성할 프리팹들
     [SerializeField] private Enemy[] _enemyPrefabs;
 
+    private GameObject _player;
+
+
+    private void Start()
+    {
+        _player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     private void Update()
     {
+        if (_player == null)
+            return;
+
         _timer += Time.deltaTime;
 
         if (_timer >= _spawnInterval)

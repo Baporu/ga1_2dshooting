@@ -108,6 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
   _damage: 99999
   _duration: 3
+  _minMaxScale: {x: 4.5, y: 5.5}
+  _expandTime: 0.2
+  _shrinkTime: 0.1
 --- !u!95 &1334299345181717342
 Animator:
   serializedVersion: 7

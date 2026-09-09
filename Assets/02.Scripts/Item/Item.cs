@@ -53,7 +53,8 @@ public class Item : MonoBehaviour
             return;
         }
 
-        Instantiate(_itemEffectPrefab, player.transform.position, Quaternion.identity);
+        GameObject vfx = Instantiate(_itemEffectPrefab, player.transform.position, Quaternion.identity);
+        vfx.transform.SetParent(player.transform);
 
         switch (_type)
         {

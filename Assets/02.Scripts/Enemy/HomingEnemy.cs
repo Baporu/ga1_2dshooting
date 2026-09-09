@@ -20,7 +20,9 @@ public class HomingEnemy : Enemy
     {
         if (_player == null) return;
 
-        transform.Translate(Vector2.down * _moveSpeed * Time.deltaTime);
+        Vector2 direction = _player.transform.position - transform.position;
+
+        transform.position += (Vector3)direction.normalized * _moveSpeed * Time.deltaTime;
     }
 
     private void Rotate()

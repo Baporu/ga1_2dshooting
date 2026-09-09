@@ -22,15 +22,23 @@ public class AimedEnemy : Enemy
         _direction = _player.transform.position - transform.position;
         _direction.Normalize();
 
+        float dx = _direction.x;
+        float dy = _direction.y;
+        // tanθ = dy / dx
+        // tan^ * tanθ = tan^ * dy / dx
+        // θ = tan^ * dy / dx
+        float seta = Mathf.Atan2(dy, dx);
+        float angle = seta * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
         Rotate();
     }
 
     protected override void Move()
     {
-        if (_player == null) return;
-
-        //  방향과 속도에 맞게 이동한다.
-        transform.Translate(Vector2.down * _moveSpeed * Time.deltaTime);
+        // 방향과 속도에 맞게 이동한다.
+        //transform.Translate(Vector2.down * _moveSpeed * Time.deltaTime);
+        transform.position += (Vector3)_direction * _moveSpeed * Time.deltaTime;
     }
 
     private void Rotate()

@@ -9,6 +9,9 @@ public abstract class Enemy : MonoBehaviour
 
     private Animator _animator;
 
+    // Todo: 에너미가 공격 당할때 재생시켜주는 피격 사운드
+    private AudioSource _damagedAudioSource;
+
     // - 생성할 아이템 프리팹들
     [SerializeField] private Item[] _itemPrefabs;
 
@@ -20,6 +23,7 @@ public abstract class Enemy : MonoBehaviour
     {
         // 애니메이터 컴포넌트에 대한 참조를 가져와서 할당한다.
         _animator = GetComponent<Animator>();
+        _damagedAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -40,10 +44,14 @@ public abstract class Enemy : MonoBehaviour
             _animator.SetTrigger("hit");
         }
 
+        _damagedAudioSource.Play();
+
+
         if (_health <= 0)
         {
             SpawnDeathEffect();
             SpawnItem();
+
 
             Destroy(gameObject);
         }

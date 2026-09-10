@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         }
 
         _health -= damage;
-        
+
         if (_health <= 0)
         {
             Instantiate(_deathEffectPrefab, transform.position, Quaternion.identity);

@@ -1785,6 +1785,7 @@ GameObject:
   - component: {fileID: 1902603601}
   - component: {fileID: 1902603600}
   - component: {fileID: 1902603602}
+  - component: {fileID: 1902603609}
   - component: {fileID: 1902603603}
   - component: {fileID: 1902603605}
   - component: {fileID: 1902603604}
@@ -1882,16 +1883,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902603599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1f3e0b3276f14c42bad4b99f46842f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
-  _speed: 2
-  MaxPositionY: -0.8
-  MinPositionY: -5
-  MaxPositionX: 2.5
+  _speed: 3
   MinPositionX: -2.5
+  MaxPositionX: 2.5
+  MinPositionY: -5
+  MaxPositionY: -0.8
 --- !u!114 &1902603603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,7 +1909,7 @@ MonoBehaviour:
   LeftFirePoint: {fileID: 132933321}
   RightFirePoint: {fileID: 288131497}
   CoolTime: 0.5
-  AutoFireMode: 0
+  AutoFireMode: 1
 --- !u!50 &1902603604
 Rigidbody2D:
   serializedVersion: 5
@@ -2036,6 +2037,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBomb
   _bombPrefab: {fileID: 7678025348423356394, guid: f0adfd823caeae84bba06c3877a4f81b, type: 3}
   _coolTime: 10
+--- !u!114 &1902603609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902603599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 881aaa037942d634f8f4e17df4b95177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAutoMove
+  _avoidDistance: 10
+  _speed: 2
 --- !u!1 &2127350323
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        
+
         Init();
     }
 
@@ -56,7 +56,6 @@ public class AudioManager : MonoBehaviour
 
         if (_audioSourcePool.Count > 0)
         {
-
             AudioSource audioSource = _audioSourcePool.Dequeue();
             audioSource.clip = audioClip;
             audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);

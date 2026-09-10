@@ -46,10 +46,9 @@ public abstract class Enemy : MonoBehaviour
             SpawnItem();
             SpawnDeathEffect();
 
-            AudioManager.Instance.PlaySFX(AudioType.ENEMY_DEATH);
+            AudioManager.Instance?.PlaySFX(AudioType.ENEMY_DEATH);
 
-            ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
-            scoreManager?.AddScore(100);
+            ScoreManager.Instance?.AddScore(100);
 
             Destroy(gameObject);
         }

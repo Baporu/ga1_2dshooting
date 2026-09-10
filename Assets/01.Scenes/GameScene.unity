@@ -1782,6 +1782,7 @@ GameObject:
   - component: {fileID: 1902603606}
   - component: {fileID: 1902603607}
   - component: {fileID: 1902603608}
+  - component: {fileID: 1902603609}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1873,7 +1874,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902603599}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1f3e0b3276f14c42bad4b99f46842f8, type: 3}
   m_Name: 
@@ -1900,7 +1901,7 @@ MonoBehaviour:
   RightFirePoint: {fileID: 288131497}
   _fireRate: 0.5
   CoolTimer: 0
-  AutoFireMode: 0
+  AutoFireMode: 1
 --- !u!50 &1902603604
 Rigidbody2D:
   serializedVersion: 5
@@ -2028,6 +2029,19 @@ MonoBehaviour:
   _bombPrefab: {fileID: 208123339721109264, guid: bfaf3b8204518e6459f5416239690786, type: 3}
   _bombLocation: {x: 0, y: 1.2}
   _coolTime: 10
+--- !u!114 &1902603609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902603599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4276cc8ee22897c48aefb4cfb0467863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAutoMove
+  _speed: 2
 --- !u!1 &2045685457
 GameObject:
   m_ObjectHideFlags: 0

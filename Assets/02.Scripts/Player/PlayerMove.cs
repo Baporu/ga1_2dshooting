@@ -10,10 +10,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float _speed;
     public float Speed => _speed;
 
-    public float MaxPositionY;
-    public float MinPositionY;
-    public float MaxPositionX;
     public float MinPositionX;
+    public float MaxPositionX;
+    public float MinPositionY;
+    public float MaxPositionY;
 
 
     // 객체가 생성될 때 한 번 실행된다.

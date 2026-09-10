@@ -6,11 +6,13 @@ public class ScoreManager : MonoBehaviour
     // 싱글톤 패턴
     // 1. 전역적으로 접근할 수 있다.
     // 2. 인스턴스(생성된 객체)가 하나임을 보장한다.
-    public static ScoreManager Instance;
+    private static ScoreManager _instance;
+    public static ScoreManager Instance => _instance;
 
     // 관리: 특정 데이터에 대한 무결성과 생성, 읽기, 수정, 삭제 등과 관련된 게임 로직
     private int _bestScore;
-    private int _currentScore;
+    private int _currentScore = 0;
+    private int _lastRefreshScore = -1;
 
     // UI 책임 추가 (TMP 참조)
     [SerializeField] private TextMeshProUGUI _bestScoreTextUI;
@@ -25,7 +27,7 @@ public class ScoreManager : MonoBehaviour
             return;
         }
 
-        Instance = this;
+        _instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -48,7 +50,11 @@ public class ScoreManager : MonoBehaviour
 
     private void Refresh()
     {
+        if (_lastRefreshScore == _currentScore)
+            return;
+
         _bestScoreTextUI.text = $"Best Score: {_bestScore}";
         _currentScoreTextUI.text = $"Score: {_currentScore}";
+        _lastRefreshScore = _currentScore;
     }
 }

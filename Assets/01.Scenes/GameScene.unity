@@ -1575,6 +1575,52 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3bd0d5937950d4c4b88d8f9bf8ca2284, type: 3}
   - {fileID: 8300000, guid: 9e39119b50df9184c9c70742b468bb76, type: 3}
   _initPoolSize: 10
+--- !u!1 &1266744348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266744350}
+  - component: {fileID: 1266744349}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266744349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266744348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85a9fc291d9dfd7498ca29efef22e07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreManager
+  _bestScoreTextUI: {fileID: 17809701}
+  _currentScoreTextUI: {fileID: 71472935}
+--- !u!4 &1266744350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266744348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359945836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,3 +2796,4 @@ SceneRoots:
   - {fileID: 1095450199}
   - {fileID: 1769222875}
   - {fileID: 275999123}
+  - {fileID: 1266744350}

@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health = 100;
+    public int Health => _health;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected int _damage;
 
@@ -47,9 +48,12 @@ public abstract class Enemy : MonoBehaviour
 
             AudioManager.Instance.PlaySFX(AudioType.ENEMY_DEATH);
 
+            ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
+            scoreManager?.AddScore(100);
+
             Destroy(gameObject);
         }
-        
+
         else
         {
             // Todo: 적이 공격 당할 때 재생시킬 피격 사운드

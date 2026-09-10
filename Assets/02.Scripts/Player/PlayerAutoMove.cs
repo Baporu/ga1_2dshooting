@@ -10,12 +10,13 @@ public class PlayerAutoMove : MonoBehaviour
      */
 
     [SerializeField] private float _speed = 2f;
+    [SerializeField] private float _stopTrackingY = -2f;
     private GameObject _target;
 
 
     private void Update()
     {
-        if (_target == null)
+        if (_target == null || _target.transform.position.y < _stopTrackingY)
         {
             FindNearestTarget();
         }
@@ -35,6 +36,9 @@ public class PlayerAutoMove : MonoBehaviour
 
         foreach (var enemy in targets)
         {
+            if (enemy.transform.position.y < _stopTrackingY)
+                continue;
+
             float distance = Vector2.Distance(transform.position, enemy.transform.position);
             if (distance < minDistance)
             {
@@ -50,8 +54,18 @@ public class PlayerAutoMove : MonoBehaviour
             return;
 
         // 2. 방향을 구한다.
-        Vector3 direction = _target.transform.position - transform.position;
-        direction.y = 0f;
+        Vector3 diff = _target.transform.position - transform.position;
+        Vector3 direction = diff;
+
+        if (diff.y >= 3)
+        {
+            direction.y = 1;
+        }
+        else
+        {
+            direction.y = -1;
+        }
+
         direction.Normalize();
 
         // 3. 속도에 맞게 이동한다.

@@ -11,6 +11,8 @@ public class PlayerFire : MonoBehaviour
     // - 생성 위치(총구)
     public Transform LeftFirePoint;
     public Transform RightFirePoint;
+    public Transform SubLeftFirePoint;
+    public Transform SubRightFirePoint;
 
     // - 쿨타이머
     private const float MinCoolTime = 0.06f;
@@ -78,11 +80,17 @@ public class PlayerFire : MonoBehaviour
     {
         // 2. 총알 프리팹을 생성한다.
         // Instantiate는 프리팹을 복사해서 (Monobehaviour를 상속받는)게임 오브젝트를 생성하고 씬에 넣어주는 기능
-        GameObject leftBullet = Instantiate(BulletPrefab);
+        Bullet leftBullet = BulletPool.Instance.GetBullet(BulletType.Main);
         leftBullet.transform.position = LeftFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
 
-        GameObject rightBullet = Instantiate(BulletPrefab);
+        Bullet rightBullet = BulletPool.Instance.GetBullet(BulletType.Main);
         rightBullet.transform.position = RightFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
+
+        Bullet subLeftBullet = BulletPool.Instance.GetBullet(BulletType.Sub);
+        subLeftBullet.transform.position = SubLeftFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
+
+        Bullet subRightBullet = BulletPool.Instance.GetBullet(BulletType.Sub);
+        subRightBullet.transform.position = SubRightFirePoint.position; // 생성한 총알의 위치를 총구의 위치로
 
         AudioManager.Instance.PlaySFX(AudioType.BULLET);
     }

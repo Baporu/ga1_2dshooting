@@ -3,14 +3,16 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // 목적: 총알을 위로 움직이고 싶다.
-    public float MoveSpeed;
-    public int Damage;
+    [SerializeField] private BulletType _type;
+    public BulletType Type => _type;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private int _damage;
 
 
     private void Update()
     {
         Vector2 direction = Vector2.up; //  new Vector2(0, 1);
-        transform.Translate(direction * MoveSpeed * Time.deltaTime);
+        transform.Translate(direction * _moveSpeed * Time.deltaTime);
     }
 
     // 트리거 관련 이벤트
@@ -26,9 +28,9 @@ public class Bullet : MonoBehaviour
             // 결합도란 묻는거.. 매번 묻는거..
             // 무적모드 검사하고
             // 방어력 검사.. 
-            enemy.TakeDamage(Damage);
+            enemy.TakeDamage(_damage);
 
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 

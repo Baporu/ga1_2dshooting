@@ -18,7 +18,11 @@ public class HomingEnemy : Enemy
 
     protected override void Move()
     {
-        if (_player == null) return;
+        if (_player == null)
+        {
+            transform.position += -transform.up * _moveSpeed * Time.deltaTime;
+            return;
+        }
 
         Vector2 direction = _player.transform.position - transform.position;
 
@@ -27,7 +31,8 @@ public class HomingEnemy : Enemy
 
     private void Rotate()
     {
-        if (_player == null) return;
+        if (_player == null)
+            return;
 
         Vector2 direction = _player.transform.position - transform.position;
 

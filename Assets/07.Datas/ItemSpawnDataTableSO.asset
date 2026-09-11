@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawnDataTableSO
   _datas:
   - _itemPrefab: {fileID: 0}
-    _weight: 20
+    _weight: 25
   - _itemPrefab: {fileID: 169723683013677533, guid: f2734fb76f763d24db6b689f8e94036a, type: 3}
-    _weight: 20
+    _weight: 25
   - _itemPrefab: {fileID: 1965197130240956709, guid: 5a2e057023b396b4fb35471e94bf8ed7, type: 3}
-    _weight: 20
+    _weight: 25
   - _itemPrefab: {fileID: 6455732793386141459, guid: ad0298e3d1ecf4a4da7ac1e000ec664c, type: 3}
-    _weight: 20
+    _weight: 25

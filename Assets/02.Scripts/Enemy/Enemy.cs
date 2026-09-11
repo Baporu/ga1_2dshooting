@@ -20,7 +20,6 @@ public abstract class Enemy : MonoBehaviour
     {
         // 애니메이터 컴포넌트에 대한 참조를 가져와서 할당한다.
         _animator = GetComponent<Animator>();
-        //_damagedAudioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void Update()

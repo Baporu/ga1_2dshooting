@@ -2122,8 +2122,8 @@ MonoBehaviour:
     _defaultCost: 100
     _increaseCost: 1.1
   - _name: FR
-    _defaultValue: 0.1
-    _increaseValue: 0.1
+    _defaultValue: 0.005
+    _increaseValue: 0.005
     _defaultCost: 1000
     _increaseCost: 1.2
   - _name: MSP

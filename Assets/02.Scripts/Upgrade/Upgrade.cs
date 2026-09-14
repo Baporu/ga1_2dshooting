@@ -3,7 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class Upgrade
 {
-    // 기획자가 채우는 속성
+    // Todo: SO로 따로 빼기
+    // 기획자가 채우는 속성 -> SO로 빼기도 함
     [SerializeField] private UpgradeType _type;
     public UpgradeType Type => _type;
     [SerializeField] private float _defaultValue;

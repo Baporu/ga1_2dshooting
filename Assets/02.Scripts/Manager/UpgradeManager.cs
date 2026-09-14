@@ -31,7 +31,7 @@ public class UpgradeManager : MonoBehaviour
 
         for (int i = 0; i < _dataTable.Datas.Length; i++)
         {
-            _upgrades[i] = new Upgrade(_dataTable.Datas[i], 1);
+            _upgrades[i] = new Upgrade(_dataTable.Datas[i]);
         }
     }
 

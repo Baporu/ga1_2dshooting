@@ -6,8 +6,10 @@ public class UpgradeManager : MonoBehaviour
     private static UpgradeManager _instance;
     public static UpgradeManager Instance => _instance;
 
+    [SerializeField] private UpgradeDataTableSO _dataTable;
+
     // 업그레이드 도메인 클래스들
-    [SerializeField] private Upgrade[] _upgrades;
+    private Upgrade[] _upgrades;
     public Upgrade[] Upgrades => _upgrades;
 
     // 업그레이드 UI들
@@ -24,6 +26,13 @@ public class UpgradeManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
+
+        _upgrades = new Upgrade[_dataTable.Datas.Length];
+
+        for (int i = 0; i < _dataTable.Datas.Length; i++)
+        {
+            _upgrades[i] = new Upgrade(_dataTable.Datas[i], 1);
+        }
     }
 
     private void Start()

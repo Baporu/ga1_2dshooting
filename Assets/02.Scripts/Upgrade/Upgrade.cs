@@ -5,12 +5,8 @@ public class Upgrade
 {
     // Todo: SO로 따로 빼기
     // 기획자가 채우는 속성 -> SO로 빼기도 함
-    [SerializeField] private UpgradeType _type;
-    public UpgradeType Type => _type;
-    [SerializeField] private float _defaultValue;
-    [SerializeField] private float _increaseValue;
-    [SerializeField] private float _defaultCost;
-    [SerializeField] private float _increaseCost;
+    private UpgradeData _data;
+    public UpgradeData Data => _data;
 
     // 실행 중에 동적으로 바뀌는 속성
     private int _level;
@@ -23,14 +19,10 @@ public class Upgrade
     public int Cost => _cost;
 
 
-    public Upgrade(UpgradeType type, int level, float defaultValue, float increaseValue, float defaultCost, float increaseCost)
+    public Upgrade(UpgradeData data, int level)
     {
-        _type = type;
+        _data = data;
         _level = level;
-        _defaultValue = defaultValue;
-        _increaseValue = increaseValue;
-        _defaultCost = defaultCost;
-        _increaseCost = increaseCost;
 
         Calculate();
     }
@@ -47,8 +39,8 @@ public class Upgrade
         // Todo: 공식에 따라 변화
         // Value = 기본값 + 레벨 * 증가량
         // Cost = 기본 점수 * 증가량 점수 ^ 레벨
-        _currentValue = _defaultValue + _level * _increaseValue;
-        _nextValue = _defaultValue + (_level + 1) * _increaseValue;
-        _cost = (int)(_defaultCost * Mathf.Pow(_increaseCost, _level));
+        _currentValue = _data.DefaultValue + _level * _data.IncreaseValue;
+        _nextValue = _data.DefaultValue + (_level + 1) * _data.IncreaseValue;
+        _cost = (int)(_data.DefaultCost * Mathf.Pow(_data.IncreaseCost, _level));
     }
 }

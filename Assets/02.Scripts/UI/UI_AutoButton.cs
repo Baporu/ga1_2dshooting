@@ -14,17 +14,13 @@ public class UI_AutoButton : MonoBehaviour
     private bool _autoMode = false;
     private Player _player;
 
-    private float _scale = 1.0f;
-    private const float OriginScale = 1.0f;
-    private const float BumpScale = 1.2f;
-    private const float BumpDuration = 0.6f;
-
 
     private void Start()
     {
         _myImage = GetComponent<Image>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
+
 
     public void AutoToggle()
     {
@@ -36,5 +32,10 @@ public class UI_AutoButton : MonoBehaviour
 
         // 오토 모드에 따라 보여지는 이미지 스프라이트 교체
         _myImage.sprite = _autoMode ? _onSprite : _offSprite;
+    }
+
+    public void PlaySound()
+    {
+        AudioManager.Instance.PlaySFX(AudioType.UI_BUTTON_CLICKED);
     }
 }

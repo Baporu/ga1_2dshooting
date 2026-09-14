@@ -10,6 +10,7 @@ public enum AudioType
     ITEM,
     PLAYER_DEATH,
     ENEMY_DEATH,
+    UI_BUTTON_CLICKED,
 }
 
 public class AudioManager : MonoBehaviour

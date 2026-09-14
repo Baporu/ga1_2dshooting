@@ -56,7 +56,8 @@ public class PlayerFire : MonoBehaviour
             Fire();
 
             // 3. 쿨타이머 초기화
-            CoolTimer = _fireRate;
+            float finalFireRate = _fireRate - UpgradeManager.Instance.Upgrades[1].CurrentValue;
+            CoolTimer = finalFireRate;
         }
     }
 

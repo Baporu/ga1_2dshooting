@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_ButtonClick : MonoBehaviour
 {
+    private Button _button;
+
     [Header("클릭 시 애니메이션")]
     [SerializeField] private AnimationCurve _bumpCurve;
 
@@ -11,6 +14,14 @@ public class UI_ButtonClick : MonoBehaviour
     private const float BumpScale = 1.1f;
     private const float BumpDuration = 0.15f;
 
+
+    private void Start()
+    {
+        // 동적으로 버튼 클릭 시 실행할 함수 추가
+        _button = GetComponent<Button>();
+        _button.onClick.AddListener(PlaySound);
+        _button.onClick.AddListener(PlayAnimation);
+    }
 
     private void Update()
     {

@@ -75,7 +75,7 @@ public class UI_AutoButton : MonoBehaviour
         // 2. 누적 시간과 애니메이션 커브에 따른 스케일 변경
         float time = _elapsedTime / BumpDuration; // 얼마나 지났는지 퍼센트 (0 ~ 1)
         float curveValue = _bumpCurve.Evaluate(time); // 퍼센트에 따라 커브 애니메이션 값 추출
-        transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * BumpScale, curveValue);
+        transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * BumpScale, curveValue);
     }
 
 

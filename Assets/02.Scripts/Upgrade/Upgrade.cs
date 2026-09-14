@@ -4,8 +4,8 @@ using UnityEngine;
 public class Upgrade
 {
     // 기획자가 채우는 속성
-    [SerializeField] private string _name;
-    public string Name => _name;
+    [SerializeField] private UpgradeType _type;
+    public UpgradeType Type => _type;
     [SerializeField] private float _defaultValue;
     [SerializeField] private float _increaseValue;
     [SerializeField] private float _defaultCost;
@@ -22,9 +22,9 @@ public class Upgrade
     public int Cost => _cost;
 
 
-    public Upgrade(string name, int level, float defaultValue, float increaseValue, float defaultCost, float increaseCost)
+    public Upgrade(UpgradeType type, int level, float defaultValue, float increaseValue, float defaultCost, float increaseCost)
     {
-        _name = name;
+        _type = type;
         _level = level;
         _defaultValue = defaultValue;
         _increaseValue = increaseValue;

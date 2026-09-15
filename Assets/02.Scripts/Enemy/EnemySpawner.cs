@@ -5,10 +5,12 @@ using Random = UnityEngine.Random;
 // 역할: 일정 시간마다 적을 생성해주고 싶다.
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemySpawnDataTableSO _spawnDataTable;
     [SerializeField] private float _spawnInterval = 3f;
-    private float _timer;
 
+    [SerializeField] private EnemySpawnDataTableSO _spawnDataTable;
+    [SerializeField] private EnemyBalanceDataTableSO _balanceDataTable;
+
+    private float _timer;
     private GameObject _player;
 
 
@@ -67,8 +69,22 @@ public class EnemySpawner : MonoBehaviour
             {
                 GameObject enemy = Instantiate(data.EnemyPrefab);
                 enemy.transform.position = transform.position;
+                enemy.GetComponent<Enemy>().SetHealthBalance(GetHealthMultiplier());
                 break;
             }
         }
+    }
+
+    public float GetHealthMultiplier()
+    {
+        // Todo: BestScore에 따라 밸런스 데이터의 multi 뭐시기 반환
+        foreach (EnemyBalanceData data in _balanceDataTable.Datas)
+        {
+            if (ScoreManager.Instance.BestScore <= data.RequiredScore)
+                return data.HealthMultiplier;
+        }
+
+        int lastIndex = _balanceDataTable.Datas.Length - 1;
+        return _balanceDataTable.Datas[lastIndex].HealthMultiplier;
     }
 }

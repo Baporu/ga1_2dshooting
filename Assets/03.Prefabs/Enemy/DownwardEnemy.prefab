@@ -180,7 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9be1f8fb05c27418f0f46b47943909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DownwardEnemy
-  _health: 60
+  _baseHealth: 80
+  _health: 80
   _moveSpeed: 4
   _damage: 20
   _itemSpawnDataTable: {fileID: 11400000, guid: e37b8f4ce6a822a4fa95e4caee77ff44, type: 2}

@@ -3058,6 +3058,7 @@ GameObject:
   - component: {fileID: 1844239761}
   - component: {fileID: 1844239764}
   - component: {fileID: 1844239766}
+  - component: {fileID: 1844239767}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3181,6 +3182,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: SimpleInput.Runtime::SimpleInputNamespace.ButtonInputUI
   button:
     m_key: Bomb
+    value: 0
+--- !u!114 &1844239767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844239758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56571356d33665b4d8bbc4977d8a54b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SimpleInput.Runtime::SimpleInputNamespace.ButtonInputKeyboard
+  key: 281
+  button:
+    m_key: 
     value: 0
 --- !u!1 &1857432769
 GameObject:

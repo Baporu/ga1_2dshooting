@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class Upgrade
 {
-    // Todo: SO로 따로 빼기
+    // Todo: (완료) SO로 따로 빼기
     // 기획자가 채우는 속성 -> SO로 빼기도 함
     private UpgradeData _data;
     public UpgradeData Data => _data;
@@ -19,9 +19,10 @@ public class Upgrade
     public int Cost => _cost;
 
 
-    public Upgrade(UpgradeData data)
+    public Upgrade(UpgradeData data, int level)
     {
         _data = data;
+        _level = level;
 
         Calculate();
     }

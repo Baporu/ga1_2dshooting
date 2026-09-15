@@ -75,7 +75,7 @@ public class PlayerMove : MonoBehaviour
 
 
         // 3. 방향과 속력에 따라 이동한다.
-        float finalSpeed = UpgradeManager.Instance.Upgrades[2].CurrentValue;
+        float finalSpeed = _speed + UpgradeManager.Instance.Upgrades[2].CurrentValue;
         Vector2 newPosition = transform.position + (Vector3)normalizedDirection * finalSpeed * Time.deltaTime;
 
         // 4. 위치 y에 제한이 있다.

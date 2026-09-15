@@ -14,6 +14,7 @@ public class UpgradeManager : MonoBehaviour
     // 업그레이드 UI들
     [SerializeField] private UI_Upgrade[] _uiUpgrades;
 
+    private const string UpgradeSaveDataKey = "UpgradeSaveData";
 
     private void Awake()
     {
@@ -78,15 +79,15 @@ public class UpgradeManager : MonoBehaviour
         // json 포맷으로 문자열 변환으로
         // 키와 밸류 형태로 저장한 형태
         string json = JsonUtility.ToJson(saveData);
-        PlayerPrefs.SetString("UpgradeSaveData", json);
+        PlayerPrefs.SetString(UpgradeSaveDataKey, json);
         PlayerPrefs.Save();
     }
 
     private void Load()
     {
-        if (!PlayerPrefs.HasKey("UpgradeSaveData")) return;
+        if (!PlayerPrefs.HasKey((UpgradeSaveDataKey))) return;
 
-        string json = PlayerPrefs.GetString("UpgradeSaveData");
+        string json = PlayerPrefs.GetString((UpgradeSaveDataKey));
         UpgradeSaveData saveData = JsonUtility.FromJson<UpgradeSaveData>(json);
 
         for (int i = 0; i < _upgrades.Length; i++)
